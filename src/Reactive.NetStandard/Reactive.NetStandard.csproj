@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+    <Product>Reactive.NetStandard</Product>
+    <Description>Реактивные расширения</Description>
+    <PackageId>Reactive.NetStandard</PackageId>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <PackageReleaseNotes>Реактивные расширения</PackageReleaseNotes>
+    <Version>1.1.0.1</Version>
+    <PackageRequireLicenseAcceptance>False</PackageRequireLicenseAcceptance>
+    <Company>Developer_N</Company>
+    <Authors>Developer_N</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Reactive\Interfaces\IReactive.cs" Link="Interfaces\IReactive.cs" />
+    <Compile Include="..\Reactive\Interfaces\IReactiveInternal.cs" Link="Interfaces\IReactiveInternal.cs" />
+    <Compile Include="..\Reactive\Methods\ReactiveAction.cs" Link="Methods\ReactiveAction.cs" />
+    <Compile Include="..\Reactive\Methods\ReactiveAsync.cs" Link="Methods\ReactiveAsync.cs" />
+    <Compile Include="..\Reactive\Methods\ReactiveThrottle.cs" Link="Methods\ReactiveThrottle.cs" />
+    <Compile Include="..\Reactive\Methods\ReactiveWhere.cs" Link="Methods\ReactiveWhere.cs" />
+    <Compile Include="..\Reactive\ReactiveBase.cs" Link="ReactiveBase.cs" />
+    <Compile Include="..\Reactive\ReactiveCollectionItem.cs" Link="ReactiveCollectionItem.cs" />
+    <Compile Include="..\Reactive\ReactiveEventHandler.cs" Link="ReactiveEventHandler.cs" />
+    <Compile Include="..\Reactive\ReactivePropertyChanged.cs" Link="ReactivePropertyChanged.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+    <Folder Include="Methods\" />
+  </ItemGroup>
+
+</Project>

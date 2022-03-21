@@ -1,0 +1,85 @@
+﻿<Window x:Class="Reactive.Demo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Reactive.Demo"
+        mc:Ignorable="d" Name="_this"
+        Title="MainWindow" MaxHeight="800" MaxWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Border Margin="5" Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1" CornerRadius="10">
+            <StackPanel Margin="5" Orientation="Vertical" DataContext="{Binding SubscribeViewModel}">
+                <TextBlock VerticalAlignment="Center" Margin="5" Text="Демонстрация работы метода Subscribe для свойств класса реализующих интерфейс INotifyPropertyChanged" TextWrapping="Wrap" TextAlignment="Center" FontSize="14" FontWeight="Bold"/>
+                <TextBlock Text="Число" Margin="55 10 55 2"/>
+                <TextBox Text="{Binding Number, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="55 2 55 10"/>
+                <TextBlock Text="Факториал" Margin="55 10 55 2"/>
+                <TextBlock Text="{Binding Factorial}" Margin="55 2 55 10"/>
+            </StackPanel>
+        </Border>
+        
+        <Border Margin="5" Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="1" CornerRadius="10">
+            <StackPanel Margin="5" Orientation="Vertical" DataContext="{Binding SubscribeEventViewModel}">
+                <TextBlock VerticalAlignment="Center" Margin="5" Text="Демонстрация работы метода SubscribeEventHandler для событий класса" TextWrapping="Wrap" TextAlignment="Center" FontSize="14" FontWeight="Bold"/>
+                <TextBlock Text="Количество вызовов CommandManager.RequerySuggested" Margin="55 10 55 2" TextWrapping="Wrap" TextAlignment="Center"/>
+                <TextBlock Text="{Binding CountCall}" Margin="55 2 55 10"/>
+                <StackPanel Orientation="Horizontal" Margin="15" HorizontalAlignment="Center">
+                    <Button Command="{Binding Command}" Margin="3" Width="25" Height="25"/>
+                    <Button Command="{Binding Command}" Margin="3" Width="25" Height="25"/>
+                    <Button Command="{Binding Command}" Margin="3" Width="25" Height="25"/>
+                    <Button Command="{Binding Command}" Margin="3" Width="25" Height="25"/>
+                    <Button Command="{Binding Command}" Margin="3" Width="25" Height="25"/>
+                    <Button Command="{Binding Command}" Margin="3" Width="25" Height="25"/>
+                    <Button Command="{Binding Command}" Margin="3" Width="25" Height="25"/>
+                    <Button Command="{Binding Command}" Margin="3" Width="25" Height="25"/>
+                    <Button Command="{Binding Command}" Margin="3" Width="25" Height="25"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <Border Margin="5" Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1" CornerRadius="10">
+            <StackPanel Margin="5" Orientation="Vertical" DataContext="{Binding SubscribeViewModel}">
+                <TextBlock VerticalAlignment="Center" Margin="5" Text="Демонстрация работы метода Subscribe для свойств зависимости классов наследующихся от класса DependencyObject" TextWrapping="Wrap" TextAlignment="Center" FontSize="14" FontWeight="Bold"/>
+                <TextBlock Text="Число" Margin="55 10 55 2"/>
+                <TextBox Text="{Binding Number, ElementName=_this, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="55 2 55 10"/>
+                <TextBlock Text="Факториал" Margin="55 10 55 2"/>
+                <TextBlock Text="{Binding Factorial, ElementName=_this}" Margin="55 2 55 10"/>
+            </StackPanel>
+        </Border>
+        
+        <Border Margin="5" Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="1" CornerRadius="10">
+            <StackPanel Margin="5" Orientation="Vertical" DataContext="{Binding SubscribeCollectionItems}">
+                <TextBlock VerticalAlignment="Center" Margin="5" Text="Демонстрация работы метода Subscribe для свойств элементов внутри ObservableCollection" TextWrapping="Wrap" TextAlignment="Center" FontSize="14" FontWeight="Bold"/>
+                <Button Content="Добавить" Command="{Binding AddNewItemCommand}" Margin="55 10"/>
+                <ItemsControl ItemsSource="{Binding Collection}" Margin="55 10">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="{x:Type local:TestClass}">
+                            <Border BorderBrush="Black" BorderThickness="1" CornerRadius="1" Margin="5" Width="75">
+                                <StackPanel Orientation="Vertical" Margin="5">
+                                    <TextBox Text="{Binding Field1, UpdateSourceTrigger=PropertyChanged}" Margin="2"/>
+                                    <TextBox Text="{Binding Field2, UpdateSourceTrigger=PropertyChanged}" Margin="2"/>    
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+                
+                <TextBox Text="{Binding LogChanged}" TextWrapping="Wrap" HorizontalScrollBarVisibility="Auto" MaxHeight="75" Margin="55 15 55 10"/>
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Window>

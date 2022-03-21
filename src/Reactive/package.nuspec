@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <!--*-->
+    <id>Reactive</id>
+    <!--*-->
+    <version>1.0.0.5</version>
+    <title>Reactive</title>
+    <!--*-->
+    <authors>Developer_N</authors>
+    <owners>Developer_N</owners>
+    <!--
+    <licenseUrl></licenseUrl>
+    <projectUrl></projectUrl>
+    <iconUrl></iconUrl>
+-->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <!--*-->
+    <description>Реактивные расширения</description>
+    <!--*-->
+    <releaseNotes>Реализация прослушивания изменения свойств элементов в ObsrvableCollection</releaseNotes>
+    <copyright>Copyright ©  2019</copyright>
+    <tags>ReactiveUI</tags>
+    <dependencies>
+      <!--
+      <dependency id="SampleDependency" version="1.0" />
+-->
+    </dependencies>
+  </metadata>
+</package>
